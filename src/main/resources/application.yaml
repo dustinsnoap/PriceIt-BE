@@ -1,3 +1,24 @@
 spring:
   application:
     name: priceit
+    mvc:
+      throw-exception-if-no-handler-found: true
+    web:
+      resources:
+        add-mappings: false
+  logging:
+    level:
+      # Kill noisy but expected 404 warnings
+      org.springframework.web.servlet.PageNotFound: ERROR
+      org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: ERROR
+      # Keep servlet lifecycle readable
+      org.springframework.web.servlet.DispatcherServlet: WARN
+priceit:
+  stores:
+    findNearest:
+      storeCountMin: 1
+      storeCountMax: 10
+      perStoreMin: 1
+      perStoreMax: 10
+      minDistanceMiles: 1
+      maxDistanceMiles: 1000000
