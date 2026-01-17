@@ -1,6 +1,7 @@
 package com.fezzlerstudios.priceit.store.controller;
 
 import com.fezzlerstudios.priceit.store.model.ClientLocation;
+import com.fezzlerstudios.priceit.store.model.StoreName;
 import com.fezzlerstudios.priceit.store.model.dto.FindNearestStoresRequest;
 import com.fezzlerstudios.priceit.store.model.dto.FindNearestStoresResponse;
 import com.fezzlerstudios.priceit.store.service.StoresService;
@@ -30,7 +31,7 @@ public class StoreController {
             @RequestParam(name = "zip", required = false) Integer zipcode,
             @RequestParam(name = "lps", required = false) Integer limitPerStore,
             @RequestParam(name = "mdm") Double maxDistanceMiles,
-            @RequestParam(name = "s") List<String> storePreferences
+            @RequestParam(name = "s") List<StoreName> storePreferences
     ) {
         ClientLocation clientLocation = ClientLocation.builder()
                 .streetAddress(streetAddress)
